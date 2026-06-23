@@ -74,18 +74,24 @@ public class CustomStack<T> {
     /** Return the top item without removing it. Throws EmptyStackException if empty. */
     public T peek() {
         // TODO
-        return null;
+        if (size == 0) throw new EmptyStackException();
+        return (T) backingArray[size - 1];
     }
 
     /** Return true if the stack contains no elements. */
     public boolean isEmpty() {
         // TODO
-        return true;
+        if (size == 0) return true;
+        return false;
     }
 
     /** Return the number of elements currently in the stack. */
     public int size() {
         // TODO
-        return 0;
+        int count = 0;
+        for (Object o: backingArray) {
+            count++;
+        }
+        return count;
     }
 }
