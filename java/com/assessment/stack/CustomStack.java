@@ -81,8 +81,7 @@ public class CustomStack<T> {
     /** Return true if the stack contains no elements. */
     public boolean isEmpty() {
         // TODO
-        if (size == 0) return true;
-        return false;
+        return size == 0;
     }
 
     /** Return the number of elements currently in the stack. */
