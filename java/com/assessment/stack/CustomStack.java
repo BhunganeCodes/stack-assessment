@@ -1,6 +1,7 @@
 package com.assessment.stack;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 /**
  * PROBLEM SET 1: Build Your Own Stack
@@ -59,7 +60,15 @@ public class CustomStack<T> {
     /** Remove and return the top item. Throws EmptyStackException if empty. */
     public T pop() {
         // TODO
-        return null;
+        if (size == 0) throw new EmptyStackException();
+
+        Object value = backingArray[size - 1];
+
+        backingArray[size - 1] = null;
+        size--;
+
+        final T result = (T) value;
+        return result;
     }
 
     /** Return the top item without removing it. Throws EmptyStackException if empty. */
