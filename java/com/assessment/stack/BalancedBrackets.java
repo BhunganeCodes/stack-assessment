@@ -47,13 +47,13 @@ public class BalancedBrackets {
                 if (stack.isEmpty()) return false;
 
                 char open = stack.pop();
-                if (!(ch == ')' && open == '(')){
+                if (ch == ')' && open != '('){
                     return false;
                 }
-                if (!(ch == ']' && open == '[')) {
+                if (ch == ']' && open != '[') {
                     return false;
                 }
-                if (!(ch == '}' && open == '{')) {
+                if (ch == '}' && open != '{') {
                     return false;
                 }
             }
