@@ -87,10 +87,6 @@ public class CustomStack<T> {
     /** Return the number of elements currently in the stack. */
     public int size() {
         // TODO
-        int count = 0;
-        for (Object o: backingArray) {
-            count++;
-        }
-        return count;
+        return size;
     }
 }
