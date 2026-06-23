@@ -1,5 +1,7 @@
 package com.assessment.stack;
 
+import java.util.Arrays;
+
 /**
  * PROBLEM SET 1: Build Your Own Stack
  *
@@ -25,14 +27,33 @@ package com.assessment.stack;
 public class CustomStack<T> {
 
     // TODO: declare your backing array and any fields you need (size, capacity, etc.)
+    private Object[] backingArray;
+    private int size;
+    private int capacity;
 
     public CustomStack() {
         // TODO: initialise your array with a starting capacity (e.g. 4)
+        this.capacity = 4;
+        this.size = 0;
+        this.backingArray = new Object[capacity];
+
     }
 
     /** Push an item onto the top of the stack. */
     public void push(T item) {
         // TODO
+        if (size == capacity) {
+            Object[] newArray = new Object[capacity * 2];
+
+            for (int i = 0; i < size; i++) {
+                newArray[i] = backingArray[i];
+            }
+            backingArray = newArray;
+            capacity *= 2;
+        }
+        backingArray[size] = item;
+        size++;
+
     }
 
     /** Remove and return the top item. Throws EmptyStackException if empty. */
