@@ -1,6 +1,5 @@
 package com.assessment.stack;
 
-import java.util.Arrays;
 import java.util.EmptyStackException;
 
 /**
@@ -58,20 +57,21 @@ public class CustomStack<T> {
     }
 
     /** Remove and return the top item. Throws EmptyStackException if empty. */
+    @SuppressWarnings("unchecked")
     public T pop() {
         // TODO
         if (size == 0) throw new EmptyStackException();
 
-        Object value = backingArray[size - 1];
+        T value = (T) backingArray[size - 1];
 
         backingArray[size - 1] = null;
         size--;
 
-        final T result = (T) value;
-        return result;
+        return value;
     }
 
     /** Return the top item without removing it. Throws EmptyStackException if empty. */
+    @SuppressWarnings("unchecked")
     public T peek() {
         // TODO
         if (size == 0) throw new EmptyStackException();
