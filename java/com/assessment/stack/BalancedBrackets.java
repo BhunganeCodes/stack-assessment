@@ -35,6 +35,29 @@ public class BalancedBrackets {
      */
     public boolean isBalanced(String input) {
         // TODO
-        return false;
+        if (input == null) return false;
+        if (input.isEmpty()) return true;
+
+        Stack<Character> stack = new Stack<Character>();
+
+        for (char ch : input.toCharArray()) {
+            if (ch == '(' || ch == '[' || ch == '{') {
+                stack.push(ch);
+            } else if (ch == ')' || ch == ']' || ch == '}') {
+                if (stack.isEmpty()) return false;
+
+                char open = stack.pop();
+                if (!(ch == ')' && open == '(')){
+                    return false;
+                }
+                if (!(ch == ']' && open == '[')) {
+                    return false;
+                }
+                if (!(ch == '}' && open == '{')) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
