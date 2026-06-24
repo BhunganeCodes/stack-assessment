@@ -27,6 +27,13 @@ import java.util.Stack;
 public class MinStack {
 
     // TODO: declare your data structures
+    private Stack<Integer> stack;
+    private Stack<Integer> minStack;
+
+    public MinStack() {
+        this.stack = new Stack<Integer>();
+        this.minStack = new Stack<Integer>();
+    }
 
     /** Push a value onto the stack. */
     public void push(int value) {
@@ -42,7 +49,8 @@ public class MinStack {
     /** Return the top value without removing it. Throws EmptyStackException if empty. */
     public int peek() {
         // TODO
-        return 0;
+        if (stack.isEmpty()) throw new EmptyStackException();
+        return stack.peek();
     }
 
     /**
@@ -57,6 +65,6 @@ public class MinStack {
     /** Return true if the stack is empty. */
     public boolean isEmpty() {
         // TODO
-        return true;
+        return stack.isEmpty();
     }
 }
