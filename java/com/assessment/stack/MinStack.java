@@ -38,6 +38,10 @@ public class MinStack {
     /** Push a value onto the stack. */
     public void push(int value) {
         // TODO
+        if (value <= minStack.peek()) {
+            minStack.push(value);
+        }
+        stack.push(value);
     }
 
     /** Remove and return the top value. Throws EmptyStackException if empty. */
