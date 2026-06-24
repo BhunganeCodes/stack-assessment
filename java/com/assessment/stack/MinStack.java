@@ -59,7 +59,8 @@ public class MinStack {
      */
     public int getMin() {
         // TODO
-        return 0;
+        if (minStack.isEmpty()) throw new EmptyStackException();
+        return minStack.peek();
     }
 
     /** Return true if the stack is empty. */
