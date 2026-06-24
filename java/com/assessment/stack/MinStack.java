@@ -47,6 +47,8 @@ public class MinStack {
     /** Remove and return the top value. Throws EmptyStackException if empty. */
     public int pop() {
         // TODO
+        if (minStack.isEmpty()) throw new EmptyStackException();
+
         int value = stack.pop();
 
         if (value == minStack.peek()) {
