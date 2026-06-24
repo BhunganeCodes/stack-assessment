@@ -39,9 +39,7 @@ public class MinStack {
     public void push(int value) {
         // TODO
         if (minStack.isEmpty()) minStack.push(value);
-        if (value <= minStack.peek() && !minStack.isEmpty()) {
-            minStack.push(value);
-        }
+        else if (value <= minStack.peek()) minStack.push(value);
 
         stack.push(value);
     }
@@ -49,8 +47,13 @@ public class MinStack {
     /** Remove and return the top value. Throws EmptyStackException if empty. */
     public int pop() {
         // TODO
-        if (stack.isEmpty()) throw new EmptyStackException();
-        return stack.pop();
+        int value = stack.pop();
+
+        if (value == minStack.peek()) {
+            minStack.pop();
+        }
+
+        return value;
     }
 
     /** Return the top value without removing it. Throws EmptyStackException if empty. */
