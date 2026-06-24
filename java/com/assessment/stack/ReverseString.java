@@ -35,13 +35,13 @@ public class ReverseString {
             result.push(ch);
         }
 
-        String res = "";
+        StringBuilder res = new StringBuilder();
 
         while (!result.isEmpty()) {
             char c = result.pop();
-            res += c;
+            res.append(c);
         }
 
-        return res;
+        return res.toString();
     }
 }
