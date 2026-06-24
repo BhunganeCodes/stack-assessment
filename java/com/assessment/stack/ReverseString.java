@@ -26,7 +26,22 @@ public class ReverseString {
      * @return the reversed string, or null if input is null
      */
     public String reverse(String input) {
-        // TODO
-        return null;
+        if (input == null) return null;
+        if (input.isEmpty()) return "";
+
+        Stack<Character> result = new Stack<Character>();
+
+        for (char ch : input.toCharArray()) {
+            result.push(ch);
+        }
+
+        String res = "";
+
+        while (!result.isEmpty()) {
+            char c = result.pop();
+            res += c;
+        }
+
+        return res;
     }
 }
