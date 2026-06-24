@@ -43,7 +43,8 @@ public class MinStack {
     /** Remove and return the top value. Throws EmptyStackException if empty. */
     public int pop() {
         // TODO
-        return 0;
+        if (stack.isEmpty()) throw new EmptyStackException();
+        return stack.pop();
     }
 
     /** Return the top value without removing it. Throws EmptyStackException if empty. */
