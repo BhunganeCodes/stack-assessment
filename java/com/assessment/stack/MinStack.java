@@ -38,9 +38,11 @@ public class MinStack {
     /** Push a value onto the stack. */
     public void push(int value) {
         // TODO
-        if (value <= minStack.peek()) {
+        if (minStack.isEmpty()) minStack.push(value);
+        if (value <= minStack.peek() && !minStack.isEmpty()) {
             minStack.push(value);
         }
+
         stack.push(value);
     }
 
